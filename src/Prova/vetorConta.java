@@ -3,16 +3,16 @@ package prova;
 public class VetorConta {
 	
 	private Conta[] conta;
-	private int qnt;
+	private int qtd;
 	
 	public VetorConta() {
 		this.conta = new Conta[1];
 	}
 	
 	public void aumentaEspaco() {
-		if(this.qnt == this.conta.length) {
+		if(this.qtd == this.conta.length) {
 			Conta[] NovaConta = new Conta[this.conta.length * 2];
-			for(int i = 0;i<this.qnt;i++) {
+			for(int i = 0;i<this.qtd;i++) {
 				NovaConta[i] = this.conta[i];
 			}
 			this.conta = NovaConta;
@@ -20,49 +20,45 @@ public class VetorConta {
 	}
 	public void adicionaFinal(Conta conta){
 		this.aumentaEspaco();
-		this.conta[this.qnt] = conta;
-		this.qnt++;
+		this.conta[this.qtd] = conta;
+		this.qtd++;
 	}
 	public void adiciona(int posicao, Conta conta) {
-		if(this.qnt==posicao) {
+		if(this.qtd==posicao) {
 			this.adicionaFinal(conta);
 		}else {
 			this.aumentaEspaco();
-			int cont = qnt-1;
+			int cont = qtd-1;
 			while(cont>=posicao) {
 				this.conta[cont + 1] = this.conta[cont];
 				cont--;
 			}
 			this.conta[posicao] = conta;
-			qnt++;
+			qtd++;
 		}	
 	}
 	public void removeFinal() {
-		this.conta[this.qnt-1] = null;
-		this.qnt--;
+		this.conta[this.qtd-1] = null;
+		this.qtd--;
 	}
 	public void remove(int posicao){
-		if(posicao==this.qnt-1){
+		if(posicao==this.qtd-1){
 			this.removeFinal();	
 		}else{
-			for(int i=posicao;i<this.qnt-1;i++){
+			for(int i=posicao;i<this.qtd-1;i++){
 				this.conta[i] = this.conta[i+1];	
 			}
-			this.conta[this.qnt-1] = null;
-			this.qnt--;
+			this.conta[this.qtd-1] = null;
+			this.qtd--;
 		}
 	}
 	public boolean existeBool(VetorConta vetor, int numConta){
-		//int j = 0;
-		for(int i=0;i<vetor.qnt;i++){
+		for(int i=0;i<vetor.qtd;i++){
 			if(vetor.conta[i].getNumConta() == numConta){
-				//j = i;
 				return true;
 			}
 		}	
-		//if(j == this.qnt-1) {
 		return false;
-		//}
 	}
 	public void existePrinta(VetorConta vetor, int numConta){
 		if(this.existeBool(vetor, numConta)) {
@@ -72,25 +68,6 @@ public class VetorConta {
 			System.out.println("Esta conta não existe na lista");
 		}
 	}
-	//public void existeString(vetorConta vetor, int numConta){
-		//int j = 0;
-		//for(int i=0;i<vetor.qnt;i++){
-			//if(vetor.conta[i].getNumConta() == numConta){
-				//System.out.println("Esta conta existe na lista");
-				//j = i;
-				//break;
-			//}
-			//else{
-				//j=i;
-				//continue;
-			//}
-		//}	
-		//if(j == this.qnt-1) {
-			//System.out.println("Esta conta N�o existe na lista");
-		//}else {
-			//System.out.print("");
-		//}
-	//}
 	public void listar() {
 		System.out.println("___lista de contas cadrastadas___" + "\n");
 		for(int i = 0;i<this.conta.length;i++){
