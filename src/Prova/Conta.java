@@ -1,22 +1,19 @@
-package Prova;
+package prova;
 
 public class Conta {
 	private String nome;
 	private int NumConta;
 	private int agencia;
-	private long cpf;
-	private long cnpj;
+	private String cpf;
 	private double saldo;
 	
-	public Conta(String nome, int numConta, int agencia,long cpf, long cnpj, double saldo) {
+	public Conta(String nome, int numConta, int agencia,String cpf, double saldo) {
 		setNome(nome);
 		setNumConta(numConta);
 		setAgencia(agencia);
 		setCpf(cpf);
-		setCnpj(cnpj);
 		setSaldo(saldo);
 	}
-	
 	public String getNome() {
 		return nome;
 	}
@@ -35,10 +32,10 @@ public class Conta {
 	public void setAgencia(int agencia) {
 		this.agencia = agencia;
 	}
-	public long getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
-	public void setCpf(long cpf2) {
+	public void setCpf(String cpf2) {
 		this.cpf = cpf2;
 	}
 	public double getSaldo() {
@@ -47,19 +44,7 @@ public class Conta {
 	public void setSaldo(double saldo2) {
 		this.saldo = saldo2;
 	}
-	public long getCnpj() {
-		return cnpj;
-	}
-	public void setCnpj(long cnpj2) {
-		this.cnpj = cnpj2;
-	}
-
-
 	public String toString() {
-		return "Nome: " + this.getNome() + " -"  + " Nº da Conta: " + this.getNumConta() + " -" + " Agencia: " + this.getAgencia();
-	
+		return "Nome: " + this.getNome() + " -"  + " NÂº da Conta: " + this.getNumConta() + " -" + " Agencia: " + this.getAgencia() + " - " + "CPF: " + this.getCpf() + " - " + "Saldo: " + this.getSaldo();
 	}
-		
-	
-
 }
