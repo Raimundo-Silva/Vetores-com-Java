@@ -4,11 +4,22 @@ public class VetorConta {
 	
 	private Conta[] conta;
 	private int qtd;
-	
+
 	public VetorConta() {
 		this.conta = new Conta[1];
 	}
-	
+	public Conta[] getConta() {
+		return conta;
+	}
+	public void setConta(Conta[] conta) {
+		this.conta = conta;
+	}
+	public int getQtd() {
+		return qtd;
+	}
+	public void setQtd(int qtd) {
+		this.qtd = qtd;
+	}
 	public void aumentaEspaco() {
 		if(this.qtd == this.conta.length) {
 			Conta[] NovaConta = new Conta[this.conta.length * 2];
